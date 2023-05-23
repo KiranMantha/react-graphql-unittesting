@@ -1,23 +1,14 @@
-import React from 'react';
-import './App.css';
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import "./App.css";
+import { Users } from "./Users";
 
 function App() {
+  const queryClient = new QueryClient();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <Users />
+    </QueryClientProvider>
   );
 }
 
