@@ -13,7 +13,7 @@ export const useGetUser = (userid: string): UseQueryResult<User, unknown> => {
   };
 
   return useQuery(
-    ["getUser"],
+    ["user"],
     () => GQLInteraction<UserResponse>(getUser, { id: userid }),
     options
   );
