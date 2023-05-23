@@ -1,7 +1,7 @@
 import { useGetUser } from "./api/gql/requests";
 
 export function Users() {
-  const { data, isFetching } = useGetUser("1");
+  const { data, isFetching, error } = useGetUser("1");
   return (
     <div data-testid="users-component">
       {!isFetching && data ? (
@@ -9,6 +9,9 @@ export function Users() {
       ) : (
         <div data-testid="loading">loading</div>
       )}
+      {error ? (
+        <div data-testid="api-error">Oops something went wrong</div>
+      ) : null}
     </div>
   );
 }

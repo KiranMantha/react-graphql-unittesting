@@ -10,6 +10,9 @@ export const useGetUser = (userid: string): UseQueryResult<User, unknown> => {
     select: (response: UserResponse): User => {
       return response.user;
     },
+    onError: () => {
+      console.log("error");
+    },
   };
 
   return useQuery(
